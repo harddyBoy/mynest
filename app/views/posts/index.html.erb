@@ -1,0 +1,9 @@
+<h1>it is POST VIEW</h1>
+
+<% @posts.each do |post|%>
+	<p><%= link_to post.title, post %></p>
+	<p><%= post.body %></p>
+	<hr>
+<% end %>
+
+<!-- <%= link_to "Add new post", new_post_path %> -->
