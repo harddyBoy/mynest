@@ -2,7 +2,7 @@
 
 <% @posts.each do |post|%>
 	<p><%= link_to post.title, post %></p>
-	<p><%= post.body %></p>
+	<p><%= raw(post.body) %></p>
 	<hr>
 <% end %>
 
