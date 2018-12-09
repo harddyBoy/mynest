@@ -11,11 +11,11 @@
 
   <body>
           <!-- Preloader -->
-        <div id="preloader">           
+<!--         <div id="preloader">           
             <div id="status">
                 <div class="loadicon icon-moustache wow tada infinite" data-wow-duration="8s"></div>
             </div>
-        </div>
+        </div> -->
         
        <header>               
         <!-- ===========================
@@ -28,7 +28,8 @@
             </div>
             
             <!-- Featured image on the Hero area -->
-            <img class="heroshot wow bounceInUp" data-wow-duration="4s" src="img/hero-img.png" alt="Featured Work">            
+            <%= image_tag "hero-img.png", :class => "heroshot wow bounceInUp", :alt => "Featured Work" %>
+            <!-- <img class="heroshot wow bounceInUp" data-wow-duration="4s" src="img/hero-img.png" alt="Featured Work">    -->         
         </div><!--HERO AREA END-->        
         
         <!-- ===========================
@@ -79,10 +80,10 @@
              </div>
              <div class="col-md-9">
                  <ul><!--CLIENTS LOGO-->
-                     <li><img src="img/payoneer.png" alt="Payoneer"></li>
-                     <li><img src="img/amazon.png" alt="Amazon"></li>
-                     <li><img src="img/elance-odesk.png" alt="Elance-oDesk"></li>
-                     <li><img src="img/curb.png" alt="Curb Envy"></li>                     
+                     <li><%= image_tag "payoneer.png", :alt => "Payoneer" %></li>
+                     <li><%= image_tag "amazon.png", :alt => "Amazon" %></li>
+                     <li><%= image_tag "elance-odesk.png", :alt => "Elance-oDesk" %></li>
+                     <li><%= image_tag "curb.png", :alt => "Curb Envy" %></li>                     
                  </ul><!--CLIENTS LOGO END-->
              </div>
          </div>
@@ -98,14 +99,13 @@
         <!-- LEFT PART OF THE ABOUT SECTION -->
          <div class="col-md-6">
             <div class="row">
-             <h2 class="wow fadeInDown" data-wow-duration="2s">I'm Mamun Srizon from Bangladesh</h2>
+             <h2 class="wow fadeInDown" data-wow-duration="2s">I'm Bohdan Kapko</h2>
 
-             <h4 class="wow fadeInUp" data-wow-duration="3s">A freelance UI/UX wizard as well as a Daydreamer who workes on the Graveyard Shift and sleeps all the day!</h4>
+             <h4 class="wow fadeInUp" data-wow-duration="3s">A freelance Rails developer wizard as well as a Daydreamer who workes on the Graveyard Shift and sleeps all the day!</h4>
              
-             <p class="wow fadeInDown" data-wow-duration="3s">I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly away from your feelings? I don't care if it takes from now till the end of Shrimpfest.</p>
-             <p class="wow fadeInDown" data-wow-duration="3s">Bugger bag egg's old boy willy jolly scrote munta skive pillock, bloody shambles nose rag blummin' scrote narky ever so, Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+             <p class="wow fadeInDown" data-wow-duration="3s">This site builded for as my univercity work, for shool children can learn Ruby an Ruby on Rails.</p>
              
-             <a class="dribbble-follow-button wow bounce" href="http://dribbble.com/srizon">Follow</a>
+             <a class="dribbble-follow-button wow bounce"">Follow</a>
              </div> <!-- ABOUT INFO END -->
              
             
@@ -113,11 +113,11 @@
                 <h5>Tools and apps I use everyday:</h5>
                 
                 <ul><!-- FAVORITE APP ICONS START -->
-                    <li><img class="wow animated bounceInUp" data-wow-duration="1s" src="img/photoshop.svg" alt="Photoshop"></li>
-                    <li><img class="wow bounceInUp" data-wow-duration="2s" src="img/illustrator.svg" alt="Illustrator"></li>
-                    <li><img class="wow bounceInUp" data-wow-duration="3s" src="img/flash.svg" alt="Adobe Flash"></li>
-                    <li><img class="wow animated bounceInUp" data-wow-duration="4s" src="img/after_effects.svg" alt="After Effects"></li>
-                    <li><img class="wow bounceInUp" data-wow-duration="5s" src="img/indesign.svg" alt="InDesign"></li>
+                    <li><%= image_tag "photoshop.svg", :class => "wow animated bounceInUp", :alt => "Photoshop" %></li>
+                    <li><%= image_tag "illustrator.svg", :class => "wow bounceInUp",  :alt => "Illustrator" %></li>
+                    <li><%= image_tag "flash.svg", :class => "wow bounceInUp",  :alt => "Adobe Flash"%></li>
+                    <li><%= image_tag "after_effects.svg", :class => "wow animated bounceInUp", :alt => "After Effects"%></li>
+                    <li><%= image_tag "indesign.svg", :class => "wow bounceInUp",  :alt => "InDesign"%></li>
                 </ul><!-- FAVORITE APP ICONS END -->
             </div>
          </div><!-- LEFT PART OF THE ABOUT SECTION END -->
@@ -125,7 +125,7 @@
          
          <!-- RIGHT PART OF THE ABOUT SECTION -->
          <div class="col-md-6 wow fadeInUp myphoto" data-wow-duration="4s">
-             <img src="img/user.png" alt="Mamun Srizon">
+             <%= image_tag "user.png", :alt => "B.K." %>
          </div><!-- RIGHT PART OF THE ABOUT SECTION END -->        
      </div><!-- ABOUT SECTION END -->
         
@@ -139,7 +139,7 @@
         <!-- SERVICE SECTION HEADING START -->
         <div class="sectionhead  row wow fadeInUp">
             <span class="bigicon icon-cup "></span>
-            <h3>This is what I can do for you</h3>
+            <h3>This is what you can learn</h3>
             <hr class="separetor">
          </div><!--SERVICE SECTION HEADING END-->
          
@@ -154,102 +154,6 @@
         </div><!-- SERVICE ITEMS END-->
     </div><!-- SERVICE SECTION END -->
     
-    <!-- ===========================
-    PORTFOLIO SECTION START
-    =========================== -->
-    <div id="portfolio">
-        <div class="sectionhead wow bounceInUp" data-wow-duration="2s">
-          <span class="bigicon icon-rocket"></span>
-           <h3>A few recent works</h3>
-           <hr class="separetor">            
-        </div><!-- PORTFOLIO SECTION HEAD END -->   
-        
-        <!-- PORTFOLIO ITEMS START -->
-        <div class="portfolioitems container">
-            <ul><div id="shotsByPlayerId"> </div></ul><!--REFER TO THE js/drifolio.js-->
-        </div><!-- PORTFOLIO ITEMS END -->
-        
-        <!--Replace the URL below with your dribbble profile URL-->
-        <a class="btn btn-default wow fadeInUp" href="http://dribbble.com/srizon" role="button">
-            <span class="btnicon icon-social-dribbble"></span>
-            <span class="button_text">View all items</span>
-        </a> 
-    </div><!-- PORTFOLIO SECTION END -->
-
-    <!-- ===========================
-    TESTIMONIAL SECTION START
-    =========================== -->
-    <div id="testimonials" class="container">
-        <div class="sectionhead wow bounceInUp" data-wow-duration="2s">
-           <span class="bigicon icon-bubbles"></span>
-           <h3>This is what I love to listen</h3>
-           <h4>Expedita nobis natus doloribus blanditiis quos, atque voluptatem, veritatis soluta eveniet ea!</h4>
-           <hr class="separetor">            
-        </div><!-- TESTIMONIAL SECTIONHEAD END -->
-        
-        <!-- TESTIMONIAL ITEMS START -->
-        <div class="row">
-            <!-- 1ST TESTIMONIAL ITEM -->
-            <div class="col-md-6 wow bounceIn" data-wow-duration="2s">
-                <div class="clientsphoto">
-                    <img src="img/dan.jpg" alt="Dan">
-                </div>
-                
-                <div class="quote">
-                    <blockquote>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia et pariatur ipsam tempora officia ea iusto expedita, nulla, hic odit saepe repellat nesciunt dolorum, officiis laborum ad, aliquam. Quos, et.</p>                        
-                    </blockquote>
-                    <h5>Dan Cederholm</h5>
-                    <p>Co-Founder, Dribbble</p>
-                </div>                
-            </div><!-- 1ST TESTIMONIAL ITEM END -->
-            
-            <!-- 2ND TESTIMONIAL ITEM -->
-            <div class="col-md-6 wow bounceIn" data-wow-duration="3s">
-                <div class="clientsphoto">
-                    <img src="img/bill.jpg" alt="Bill">
-                </div>
-                
-                <div class="quote">
-                    <blockquote>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia et pariatur ipsam tempora officia ea iusto expedita, nulla, hic odit saepe repellat nesciunt dolorum, officiis laborum ad, aliquam. Quos, et. lorem</p>                        
-                    </blockquote>
-                    <h5>Bill S Kenney</h5>
-                    <p>Art Director at Focus Lab LLC.</p>
-                </div>                
-            </div><!-- 2ND TESTIMONIAL ITEM END -->
-            
-            <!-- 3RD TESTIMONIAL ITEM -->
-            <div class="col-md-6 wow bounceIn" data-wow-duration="3s">
-                <div class="clientsphoto">
-                    <img src="img/eric.png" alt="Eric">
-                </div>
-                
-                <div class="quote">
-                    <blockquote>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia et pariatur ipsam tempora officia ea iusto expedita, nulla, hic odit saepe repellat nesciunt dolorum, officiis laborum ad, aliquam. Quos, et.</p>                        
-                    </blockquote>
-                    <h5>Eric Hoffman</h5>
-                    <p>Principal Designer, JellyJar</p>
-                </div>                
-            </div><!-- 3RD TESTIMONIAL ITEM END -->
-            
-            <!-- 4TH TESTIMONIAL ITEM -->
-            <div class="col-md-6 wow bounceIn" data-wow-duration="2s">
-                <div class="clientsphoto">
-                    <img src="img/ramil.jpg" alt="Ramil">
-                </div>
-                
-                <div class="quote">
-                    <blockquote>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia et pariatur ipsam tempora officia ea iusto expedita, nulla, hic odit saepe repellat nesciunt dolorum, officiis laborum ad, aliquam. Quos, et.</p>                        
-                    </blockquote>
-                    <h5>Ramil Derogongun</h5>
-                    <p>Visual Designer, Bluroon</p>
-                </div>                
-            </div><!-- 4TH TESTIMONIAL ITEM END -->
-        </div>        
-    </div><!-- TESTIMONIAL SECTION END -->
        
     <!-- ===========================
     FOOTER START
@@ -257,31 +161,16 @@
     <footer>
         <div class="container">
             <span class="bigicon icon-speedometer "></span>
-             
-            <div class="footerlinks"><!-- FOOTER LINKS START -->            
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-
-                    <!--replace the email address below with your email address-->
-                    <li><a href="mailto:m@creatrix.us">Contact</a></li>                   
-                </ul>
-            </div><!-- FOOTER LINKS END -->
+            
              
             <div class="copyright"><!-- FOOTER COPYRIGHT START -->
-                <p><a href="#">Drifolio</a> stands for Dribbble-Portolio. This is a free HTML template designed and coded by <a href="http://evenfly.com">EvenFly Team</a>. All logo and images in this template used for preview purpose only. You are free to use the template but make sure to use your own images.</p>
+                <p><a href="#">Nest.</a> This is a free online lessons designed and coded by <a href="http://evenfly.com">Bohdan Kapko.</a></p>
             </div><!-- FOOTER COPYRIGHT END -->
              
             <div class="footersocial wow fadeInUp" data-wow-duration="3s"><!-- FOOTER SOCIAL ICONS START -->
                 <ul>
-                    <li><a href="http://facebook.com/MamunSrizon"><span class="icon-social-facebook"></span></a></li>
-                    <li><a href="http://twitter.com/MamunSrizon"><span class="icon-social-twitter"></span></a></li>
-                    <li><a href="#"><span class="icon-social-youtube"></span></a></li>
-                    <li><a href="http://dribbble.com/srizon"><span class="icon-social-dribbble"></span></a></li>
-                    <li><a href="#"><span class="icon-social-tumblr"></span></a></li>
+                    <li><a href="http://facebook.com/"><span class="icon-social-facebook"></span></a></li>
+                    <li><a href="http://twitter.com/"><span class="icon-social-twitter"></span></a></li>
                  </ul>
              </div><!-- FOOTER SOCIAL ICONS END -->
          </div>
