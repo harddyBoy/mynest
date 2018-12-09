@@ -1,8 +1,8 @@
 
 <% @posts.each do |post|%>
-	<div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-duration="3s">
-            <img src="img/s1.png" alt="">
+	<div class="col-md-6 col-lg-4 wow fadeInUp my_lesson" data-wow-duration="3s">
+            <%= image_tag "rand/#{rand(6)}.png" %>
             <h4><%= link_to post.title, post%></h4>
-            <p><%=  post.body%></p>
+            <!-- <p><%=  post.body%></p> -->
             </div> <!-- ITEM END -->
 <% end %>

@@ -56,6 +56,7 @@ gem 'cancan'
 gem 'draper'
 gem 'pundit'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

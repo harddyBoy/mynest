@@ -137,8 +137,20 @@ CLIENTS SECTION
 #clients li:last-child{
     margin-right: 0px;
 }
+ .about_me_r, .about_me_l{
+ 	display: inline-block;
+ }
 
+ .about_me_l{
+ 	max-width: 548px;
+    margin-left: 150px;
+    padding-right: 30px;
+ }
 
+.my_lesson{
+	display: inline-block;
+    margin: 0 97px;
+}
 /*================================
 ABOUT SECTION
 ================================*/
@@ -295,7 +307,7 @@ FOLLOW BUTTON
     height: 18px;
     width: 18px;
     float: left;
-    background: url(../img/icon.png) no-repeat top left;
+    background: url(icon.png) no-repeat top left;
 }
 
 .dribbble-follow-button .label:hover {
