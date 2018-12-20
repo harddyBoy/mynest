@@ -1,0 +1,94 @@
+Створення Rails-api проекту
+Встановлення Rails-api та необхідних компонентів
+ 
+
+Перше що треба зробити, це встановити rvm та останню версію ruby
+
+       gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+       \curl -sSL https://get.rvm.io | bash -s stable
+       rvm install 2.3.0
+                rvm use 2.3.0
+                rvm gemset create project_name
+       rvm gemset use project_name
+       
+
+встановити два необхідних геми
+
+                gem install rails-api
+                sudo apt-get install libpq-dev(треба завантажити  бібліотеку яка необхідна для гему pg)
+                gem install pg 
+
+після цього створимо наш  Rails-api проект
+               rails-api new backend -T -d postgresql -J
+де backend – назва папки(namespace) куди буде встановлено проект
+-Т – не встановлювати тести(гем мнитест, та додаткові для тестування компоненти)
+-d postrgesql – вибираемо тип бази, в нашому випадку postgresql
+-J – пропускаемо JS так як для API він не потрібен
+Додамо до Gemfile фреймворк для тестування
+
+             group :development, :test do
+                   gem ‘rspec-rails’, ‘~> 3.0’
+             end
+ необхідні геми для аутентифікації и доступу до API
+
+            gem ‘devise_token_auth’
+            gem ‘omniauth’
+            gem ‘rack-cors’
+
+gemfile
+мал. Повний список гемів
+
+Запустимо в консолі bundle
+Ініціанілізуемоspec/ директорію:
+rails generate rspec:install
+rspec install
+Тепер коли стуктура створена, збережемо цей стан в git-репозіторії
+але спочатку створимо .gitignore файл, данні взяв  – тут
+потім виконаемо послідовність команд
+
+git init
+git add .
+git commit -m”init”
+git remote add origin https://github.com/shepitko/home_accounting_api.git
+git push -u origin master
+Ствоення міграцій
+Тепер щоб не пушити все в гілку майстер, створемо нову гілку
+git checkout -b sketch
+
+Нам потрібно створити 6 моделей і міграцій:
+User – цю модель ми створимо за допомогою генератора device-token-auth, в ній будуть всі поля необхідні для збереження данних авторизації,користувача, та ін.
+Wallet- модель в якій будуть зберігатися всі кошти(доходи та расходи)
+Product – найменування покупок/надходжень/та ін.
+Category – категорія продукту
+
+ 
+
+Згенеруемо нашу модель User
+
+на цьому етапі у мене виникли проблеми з базою даних postgresql, налаштувати db мені допоміг цей пост
+
+rails g devise_token_auth:install User auth
+
+make_model_user
+
+Тепер сгенеруемо інші моделі та міграції
+
+rails g model Category
+
+rails g model Product
+
+rails g model Wallet
+
+Вкажемо тепер необхідні поля в файлах миграций, поля та їх тип можно було вказати на етапі генерування, а ле мені зручнішеце робіти в редакторі.
+
+migrate
+
+В наступних розділах:
+model - встановимо зв’язки між моделями
+
+controller - зробимо зв’язки, та перевіримо в консолі
+
+rspec - створемо структуру апі и згенеруємо контроллери
+
+Авторизація - написати прості rspec тести на апі
+
