@@ -1,0 +1,92 @@
+Добавлення  Багатьох Зображень До Моделі
+
+1. Створення навчального проекту
+
+1.1 Створіть новий проект(ми використовуємо базу даних Postgres) і перейдіть в директорію проекту
+
+
+rails new multiple_images_uploader -d postgresql
+cd multiple_images_uploader
+1.2 Створіть базу даних
+
+
+rails db:create
+1.3 Згенеруйте скафолд Gallery і запустіть міграцію
+
+
+rails g scaffold Gallery title:string 
+rails db:migrate
+2. Підключення джему CarrierWave
+
+2.1 Додайте джем CarrierWave в Gemfile файл свого проекту
+
+
+gem 'carrierwave', '~> 1.0'
+виконайте команду:
+
+
+bundle install
+3. Згенеруйте завантажувач(ми назвали наш завантажувач Image):
+
+1
+rails generate uploader Image
+ця команда створить файл: app/uploaders/image_uploader.rb
+
+4. Додайте колонку images до таблиці galleries
+
+згенеруйте міграцію:
+
+
+rails g migration add_images_to_galleries images:json
+rails db:migrate
+5. Встановіть завантажувач
+
+В модель Gallery додайте метод mount_uploaders, в якості аргументів передайте символ з назвою колонки, в яку зберігатимуться зображення і завантажувач, який ми згенерували в кроці 3
+
+app/models/gallery.rb
+
+class Gallery < ApplicationRecord
+  mount_uploaders :images, ImageUploader
+end
+6. В контролері Galleries в метод gallery_params додайте параметр з масивом зображень:
+app/controllers/galleries_controller.rb
+
+def gallery_params
+  params.require(:gallery).permit(:title, {images: []})
+end
+7. Додайте наступний блок до паршалу для створення галерії
+
+app/views/galleries/_form.html.erb
+
+<div class="field">
+   <%= form.label :images, "Images:" %>
+   <%= form.file_field :images, multiple: true %> 
+</div>
+8. У файл show.html.erb додайте наступний параграф
+
+app/views/galleries/show.html.erb
+
+<p>
+  <% @gallery.images.each do |image| %>
+    <%= image_tag image.url %>
+  <% end %>
+</p>
+9. Задайте кореневий маршрут
+
+config/routes.rb
+
+Rails.application.routes.draw do
+  resources :galleries
+  root to: 'galleries#index'
+end
+10. Запустіть сервер
+
+в терміналі,в корневій папці проекту введіть команду:
+
+
+rails server
+в браузері введіть:
+
+localhost:3000
+
+Тепер при створенні нової галереї у вас буде можливість додавати декілька зображень(використовуйте SHIFT+SELECT щоб вибрати декілька зображень).
